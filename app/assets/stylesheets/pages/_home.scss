@@ -1,1 +1,22 @@
-// Specific CSS for your home-page
+.home-container {
+  height: 92vh;
+  // background-image: url("lady-bookplated.jpg");
+  // background-size: cover;
+  // background-repeat: none;
+  // filter: contrast(.68) brightness(.9) transparent(.5);
+}
+
+.home-container::after {
+  content: "";
+  background: url("lady-bookplated.jpg");
+  background-size: cover;
+  background-repeat: none;
+  background-position: bottom;
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
