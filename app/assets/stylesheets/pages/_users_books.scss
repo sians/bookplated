@@ -1,6 +1,52 @@
+.filters {
+  margin-bottom: 10px;
+  text-align: right;
+  display: flex;
+  justify-content: space-between;
+  .fas {
+    color: $bookplated;
+  }
+  .fa-list {
+    margin-right: 10px;
+  }
+}
+
 
 
 .book-cover {
-  height: auto;
-  width: 100%;
+  height: 200px;
+  width: 140px;
+}
+
+
+
+// L I S T     P A R T I A L     S T Y L E S
+
+.book-cover-list {
+  height: 180px;
+  width: 120px;
+}
+
+table.list-display {
+  width: 900px;
+  tr.headers {
+    font-family: alegreya-sans-sc, sans-serif;
+    font-weight: thin;
+    text-transform: capitalize;
+    .th-cover {
+      width: 150px;
+    }
+    .th-date-read {
+      width: 100px;
+    }
+    .th-pages {
+      width: 70px;
+    }
+  }
+  tr {
+    border-bottom: 2px solid $bookplated;
+  }
+  td {
+    padding: 20px 0px;
+  }
 }

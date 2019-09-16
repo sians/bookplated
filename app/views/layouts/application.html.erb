@@ -12,9 +12,9 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <%# unless controller_name == 'pages' %>
+    <% unless controller_name == 'pages' %>
       <%= render 'shared/navbar' %>
-    <%# end %>
+    <% end %>
 
     <%= render 'shared/flashes' %>
     <%= yield %>

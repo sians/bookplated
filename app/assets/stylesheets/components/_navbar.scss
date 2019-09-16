@@ -1,8 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: transparent;
+  // background: transparent;
+  background: $bookplated;
   color: white;
-  margin:  0px 70px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -19,7 +19,7 @@ i {
 }
 
 .logo {
-  color: black;
+  color: white;
   letter-spacing: 2px;
   font-weight: medium;
 }

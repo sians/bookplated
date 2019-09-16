@@ -3,6 +3,7 @@ class BooksController < ApplicationController
 
   def index
     @books = policy_scope(current_user.books).order(created_at: :desc)
+    @partial = whitelisted_partial || 'grid'
   end
 
   def show
@@ -44,5 +45,9 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(:title, :year_published, :pages, :cover, :isbn, :users_book_id, :photo)
+  end
+
+  def whitelisted_partial
+    %w(grid list).detect { |str| str == params[:view] }
   end
 end
