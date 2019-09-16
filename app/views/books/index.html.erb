@@ -1,12 +1,19 @@
 <div class="container">
+  <div class="filters">
+
+  </div>
+
   <div class="row">
 
     <% if @books.empty? %>
       <p>You don't seem to have read any books yet! Add one?</p>
     <% else %>
       <% @books.each do |book| %>
-        <div class="col-3 col-lg-6">
+        <div class="col-6 col-lg-2">
           <p><%= book.title %></p>
+          <%= link_to user_book_path(current_user, book) do %>
+            <%= image_tag photo_or_placeholder(book), class: 'book-cover' %>
+          <% end %>
         </div>
       <% end %>
     <% end %>

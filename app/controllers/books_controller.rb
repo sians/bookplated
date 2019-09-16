@@ -6,6 +6,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    authorize @book
   end
 
   def new
@@ -14,6 +15,18 @@ class BooksController < ApplicationController
   end
 
   def create
+    @book = Book.new(book_params)
+    if @book.save
+      @users_book = UsersBook.new
+      @users_book.user = current_user
+      @users_book.book = @book
+    end
+    if @users_book.save
+      redirect_to user_books_path
+    else
+      render 'new'
+    end
+    authorize @book
   end
 
   def edit
@@ -30,6 +43,6 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title, :year_published, :pages, :cover, :isbn, :users_book_id)
+    params.require(:book).permit(:title, :year_published, :pages, :cover, :isbn, :users_book_id, :photo)
   end
 end
