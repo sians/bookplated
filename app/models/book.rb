@@ -3,6 +3,6 @@ class Book < ApplicationRecord
   has_many :users_books
   has_many :authors, through: :authors_books
 
-  mount_uploader :cover, PhotoUploader
+  mount_uploader :photo, PhotoUploader
 
 end
