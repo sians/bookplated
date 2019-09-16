@@ -8,6 +8,16 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-// Your CSS partials
+// C O M P O N E N T S
 @import "components/index";
+@import "components/buttons";
+@import "components/container";
+
+
 @import "pages/index";
+
+
+// Form CSS partials
+@import "forms/login_form";
+
+

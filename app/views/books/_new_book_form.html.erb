@@ -1,0 +1,12 @@
+<%= simple_form_for(user_books_path) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :year_published %>
+  <%= f.input :pages %>
+  <%= f.input :isbn %>
+
+  <%= f.input :cover %>
+  <%= f.input :cover_cache, as: :hidden %>
+
+  <%= f.button :submit, "Add Book", class: 'btn btn-bookplated' %>
+<% end %>
+

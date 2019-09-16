@@ -1,9 +1,12 @@
+body {
+  background-color: white;
+}
+
 .home-container {
   height: 92vh;
-  // background-image: url("lady-bookplated.jpg");
-  // background-size: cover;
-  // background-repeat: none;
-  // filter: contrast(.68) brightness(.9) transparent(.5);
+  display: flex;
+  align-items: center;
+  margin-left: 70px;
 }
 
 .home-container::after {
@@ -19,4 +22,6 @@
   right: 0;
   position: absolute;
   z-index: -1;
+  margin: 70px;
 }
+

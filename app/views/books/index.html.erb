@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+
+    <% if @books.empty? %>
+      <p>You don't seem to have read any books yet! Add one?</p>
+    <% else %>
+      <% @books.each do |book| %>
+        <div class="col-3 col-lg-6">
+          <p><%= book.title %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>
