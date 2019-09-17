@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users do
-    resources :books, only: %i[new create index show update destroy]
+    resources :books, only: %i[new create index show edit update destroy]
   end
 end

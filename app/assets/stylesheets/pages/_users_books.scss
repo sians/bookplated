@@ -11,14 +11,10 @@
   }
 }
 
-
-
 .book-cover {
   height: 200px;
   width: 140px;
 }
-
-
 
 // L I S T     P A R T I A L     S T Y L E S
 
@@ -44,7 +40,7 @@ table.list-display {
     }
   }
   tr {
-    border-bottom: 2px solid $bookplated;
+    border-bottom: 2px solid $light-gray;
   }
   td {
     padding: 20px 0px;

@@ -8,6 +8,7 @@ class BooksController < ApplicationController
 
   def show
     authorize @book
+    @users_book = @book.users_books.where(:user_id == current_user.id).first
   end
 
   def new
@@ -21,6 +22,8 @@ class BooksController < ApplicationController
       @users_book = UsersBook.new
       @users_book.user = current_user
       @users_book.book = @book
+    else
+      render 'new'
     end
     if @users_book.save
       redirect_to user_books_path
