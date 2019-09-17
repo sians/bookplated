@@ -1,0 +1,6 @@
+  <p>Create A New Author:</p>
+  <%= simple_form_for :author, url: authors_create_path, method: :post, input_html: { class: 'author-form'} do |author_form| %>
+    <%= author_form.input :first_name, input_html: { autocomplete: 'off' } %>
+    <%= author_form.input :last_name, input_html: { autocomplete: 'off' } %>
+    <%= author_form.button :submit, "Create New Author", class: "btn btn-bookplated" %>
+  <% end %>

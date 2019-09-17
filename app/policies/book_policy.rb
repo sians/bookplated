@@ -22,7 +22,7 @@ class BookPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    record.user == current_user
   end
 
   def destroy?
