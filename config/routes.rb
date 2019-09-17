@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :books, only: %i[new create index show edit update destroy]
+    get 'stats', to: 'pages#stats', as: 'stats'
   end
 
   get 'authors/new', to: 'authors#new', as: 'authors_new'
