@@ -1,0 +1,27 @@
+.italic {
+  font-style: italic;
+}
+
+.book-details {
+  display: flex;
+  font-family: "questa-grande", serif;
+  .book-info {
+    margin-left: 40px;
+    i {
+      color: $light-gray;
+    }
+    i:hover {
+      color: $bookplated;
+    }
+  }
+}
+
+
+.quote-section {
+  margin-top: 70px;
+}
+
+
+.note-section {
+  margin-top: 70px;
+}
