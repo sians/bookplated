@@ -25,6 +25,14 @@ class BooksController < ApplicationController
     else
       render 'new'
     end
+    params[:book][:author_ids].each do |id|
+      unless id.empty?
+        authors_book = AuthorsBook.new
+        authors_book.book = @book
+        authors_book.author = Author.find(id)
+        authors_book.save
+      end
+    end
     if @users_book.save
       redirect_to user_books_path
     else
@@ -47,7 +55,7 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title, :year_published, :pages, :cover, :isbn, :users_book_id, :photo)
+    params.require(:book).permit(:title, :year_published, :pages, :cover, :isbn, :users_book_id, :author_ids, :photo)
   end
 
   def whitelisted_partial
