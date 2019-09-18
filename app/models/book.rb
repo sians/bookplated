@@ -5,4 +5,6 @@ class Book < ApplicationRecord
 
   mount_uploader :photo, PhotoUploader
 
+  include PgSearch::Model
+  multisearchable against: [:title]
 end

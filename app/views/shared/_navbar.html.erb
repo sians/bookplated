@@ -24,6 +24,15 @@
           <% end %>
         </li>
 
+        <%= form_tag search_index_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search your library..."
+          %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
+
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
