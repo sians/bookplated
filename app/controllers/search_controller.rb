@@ -9,16 +9,18 @@ class SearchController < ApplicationController
         if result[:searchable_type] == "Author"
           @authors << Author.find(result[:searchable_id])
         elsif result[:searchable_type] == "Book"
-          @books << Book.find(result[:searchable_id])
+          book = Book.find(result[:searchable_id])
+          @books << book if current_user.book_ids.include? book.id
         end
       end
       unless @authors.empty?
         @authors.each do |author|
-          author.books.each { |book| @books << book }
+          author.books.each { |book| @books << book if current_user.book_ids.include? book.id }
         end
       end
     end
     @partial = whitelisted_partial || 'grid'
+    @query = params[:query]
   end
 
   private

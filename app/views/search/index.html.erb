@@ -1,10 +1,10 @@
 <div class="container">
   <div class="filters">
     <div class="filter-display">
-      <%= link_to user_books_path(current_user, view: 'list') do %>
+      <%= link_to search_index_path(current_user, view: 'list', query: @query) do %>
         <i class="fas fa-list"></i>
       <% end %>
-      <%= link_to user_books_path(current_user, view: 'grid') do %>
+      <%= link_to search_index_path(current_user, view: 'grid', query: @query) do %>
         <i class="fas fa-th-large"></i>
       <% end %>
     </div>
