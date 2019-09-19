@@ -5,5 +5,10 @@ import { initSelect2 } from '../components/init_select2';
 import { barchart } from '../components/barchart';
 
 initSelect2();
-barchart();
+
+const stats = document.querySelector(".stats-container");
+if (stats) {
+  barchart();
+}
+
 
