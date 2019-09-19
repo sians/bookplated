@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   get 'authors/new', to: 'authors#new', as: 'authors_new'
   post 'authors/create', to: 'authors#create', as: 'authors_create'
 
-  get 'pages/barchart', to: 'pages#barchart', as: 'barchart'
+  get 'stats/barchart', to: 'stats#barchart', as: 'barchart'
 end
