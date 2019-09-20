@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # U S E R S
-User.create(email: "sian.m.stone@gmail.com")
+user = User.create(email: "sian.m.stone@gmail.com", password: "Password")
 
 # A U T H O R S
 Author.create(first_name: "Zadie", last_name: "Smith", full_name: "Zadie Smith", birth_year: 1975, nationality: "British", death_year: nil, gender: "female")
@@ -32,7 +32,6 @@ Book.create(title: "The Goldfinch", year_published: 2013, pages: 771, isbn: "978
 Book.create(title: "The Count Of Monte Christo", year_published: 1844, pages: 1276, isbn: "9780140449266")
 Book.create(title: "Wolf Hall", year_published: 2009, pages: 653, isbn: "9780007230204")
 Book.create(title: "Illywacker", year_published: 1985, pages: 569, isbn: "9780571225903")
-
 
 # A U T H O R S     B O O K S
 swing = AuthorsBook.new
