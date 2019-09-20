@@ -1,0 +1,16 @@
+.novalid-login {
+  width: 400px;
+  margin: 50px auto 0px;
+  .novalid-links {
+    margin-top: 30px;
+    font-family: "itc-american-typewriter", serif;
+    font-size: 14px;
+    a {
+      color: $bookplated;
+    }
+    a:hover {
+      color: #8b949d;
+      text-decoration: none;
+    }
+  }
+}
