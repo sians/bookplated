@@ -29,8 +29,7 @@
       <% else %>
         <% @users_book.quotes.each do |quote| %>
           <div class="quote-card">
-            <p><%= quote.quote_text %></p>
-            <p><%= quote.page_num %></p>
+            <p><span class="quote-text">"<%= quote.quote_text %>"</span> - <span class="page-num">page <%= quote.page_num %></span></p>
           </div>
         <% end %>
       <% end %>
