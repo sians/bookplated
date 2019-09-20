@@ -26,6 +26,26 @@ i:hover {
 
 .quote-section {
   margin-top: 70px;
+  color: rgba(0,0,0,0.7);
+  font-size: 18px;
+  h4 {
+    color: black;
+  }
+  .quotes {
+    margin-top: 50px;
+    .quote-card {
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      margin-top: 30px;
+
+      .quote-text {
+        font-style: italic;
+      }
+      .page-num {
+        color: rgba(0,0,0,0.5);
+        font-size: 14px;
+      }
+    }
+  }
 }
 
 .note-section {
