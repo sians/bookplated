@@ -6,7 +6,9 @@ import { barchart } from '../components/barchart';
 
 initSelect2();
 
+// checking if it's the stats page!
 const stats = document.querySelector(".stats-container");
+// if it's the stats page, load loads of charts woo!
 if (stats) {
   barchart();
 }
