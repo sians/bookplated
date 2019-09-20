@@ -13,9 +13,14 @@
   width: 40px;
 }
 
-i {
+a {
+  i {
   font-size: 20px;
   color: white;
+  }
+  i:hover {
+  color: white;
+  }
 }
 
 .logo {

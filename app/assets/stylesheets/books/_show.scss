@@ -1,3 +1,11 @@
+i {
+  color: $light-gray;
+}
+i:hover {
+  color: $bookplated;
+  cursor: pointer;
+}
+
 .italic {
   font-style: italic;
 }
@@ -16,12 +24,11 @@
   }
 }
 
-
 .quote-section {
   margin-top: 70px;
 }
 
-
 .note-section {
   margin-top: 70px;
 }
+

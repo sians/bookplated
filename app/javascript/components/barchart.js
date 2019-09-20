@@ -20,7 +20,7 @@ const barchart = () => {
       .attr("class", "barChart")
 
   d3.json(jsonURL)
-    .then(function(data) {
+    .then(data => {
       console.log(data);
   });
 }

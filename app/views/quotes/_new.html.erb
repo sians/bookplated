@@ -1,0 +1,6 @@
+<%= simple_form_for :quote, url: create_quote_path, method: :post, input_html: { class: 'quote-form'} do |quote_form| %>
+  <%= quote_form.input :users_book_id, as: :hidden, input_html: {value: users_book.id } %>
+  <%= quote_form.input :quote_text, input_html: { autocomplete: 'off' } %>
+  <%= quote_form.input :page_num %>
+  <%= quote_form.button :submit, "Add Quote", class: "btn btn-bookplated" %>
+<% end %>

@@ -18,17 +18,32 @@
     </div>
   </div>
   <div class="quote-section">
-    <h4>Quotes</h4>
-
-    <p class="italic">You don't have any quotes yet!</p>
-
+    <h4>
+      Quotes
+      <i class="fas fa-plus" data-toggle="modal" data-target="#new-quote-modal"></i>
+      <%= render 'quotes/quotes_modal', users_book: @users_book %>
+    </h4>
+    <div class="quotes">
+      <% if @users_book.quotes.empty? %>
+        <p class="italic">You don't have any quotes yet!</p>
+      <% else %>
+        <% @users_book.quotes.each do |quote| %>
+          <div class="quote-card">
+            <p><%= quote.quote_text %></p>
+            <p><%= quote.page_num %></p>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
   <div class="note-section">
-    <h4>Notes</h4>
+    <h4>
+      Notes
+      <i class="fas fa-plus"></i>
+    </h4>
 
     <p class="italic">You don't have any notes yet!</p>
 
   </div>
-
 
 </div>
