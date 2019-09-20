@@ -1,6 +1,8 @@
+
+// W H I T E
 .login-form {
   width: 400px;
-  margin: -100px 0px 0px 100px;
+  margin: 50px 0px 0px 100px;
   padding: 30px;
   -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.45);
   -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.45);
@@ -12,3 +14,20 @@
 label {
   margin-bottom: 0px;
 }
+
+
+// B L A C K    A L T E R N A T I V E
+
+// .login-form {
+//   width: 400px;
+//   margin: 50px 0px 0px 100px;
+//   font-family: "itc-american-typewriter", serif;
+//   .form-group {
+//     label {
+//       color: white;
+//       background-color: rgba(0,0,0,0.9);
+//       padding: 0px 5px;
+//     }
+//   }
+// }
+
