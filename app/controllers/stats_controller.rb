@@ -35,12 +35,10 @@ class StatsController < ApplicationController
     end
 
     # get array to count the number of books read each year
-    num_books = data.map do |object|
-      object[:books].length
-    end
+    num_books = data.map { |object| object[:books].length }
 
     d3 = {
-      data: data,
+      data: data.reverse!,
       minYear: years.min,
       maxYear: years.max,
       minRead: num_books.min,
