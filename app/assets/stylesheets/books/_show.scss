@@ -13,6 +13,20 @@ i:hover {
 .book-details {
   display: flex;
   font-family: "questa-grande", serif;
+  .book-cover-container {
+    display: relative;
+  }
+  .edit-cover {
+    display: none;
+    position: absolute;
+    top: 220px;
+    left: 195px;
+    background-color: $bookplated;
+    padding: 10px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "itc-american-typewriter", serif;
+  }
   .book-info {
     margin-left: 40px;
     i {
