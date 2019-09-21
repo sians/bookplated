@@ -1,7 +1,10 @@
-<div class="container">
+<div class="container show-container">
   <div class="book-details">
-    <div class="book-cover">
+    <div class="book-cover-container">
       <%= image_tag photo_or_placeholder(@book), class: 'book-cover' %>
+      <span class="edit-cover" data-toggle="modal" data-target="#edit-cover-modal">edit</span>
+      <%= render 'books/edit_cover_modal', book: @book %>
+
     </div>
     <div class="book-info">
       <h1>

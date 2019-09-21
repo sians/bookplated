@@ -45,6 +45,15 @@ class BooksController < ApplicationController
   end
 
   def update
+    authorize @book
+
+    if params[:photo].present?
+      preloaded = Cloudinary::PreloadedFile.new(params[:photo])
+      raise "Invalid upload signature" if !preloaded.valid?
+      @book.photo = preloaded.identifier
+    end
+
+    raise
   end
 
   private

@@ -1,0 +1,35 @@
+<div class="edit-cover-form">
+  <div class="cover-preview">
+    <%= image_tag photo_or_placeholder(book), class: 'book-cover' %>
+  </div>
+  <%= simple_form_for @book, url: user_book_path(current_user, @book), method: :patch do |f| %>
+    <%= f.input :title %>
+    <%#= f.input :photo,
+              input_html:
+                { class: 'hidden',
+                  id: 'photo-input'
+                },
+              label_html:
+                { class: 'upload-photo'},
+              label: 'Upload a new Book Cover:' %>
+
+
+    <%#= cl_image_upload_tag(
+      :photo,
+      :tags => "directly_uploaded",
+      :crop => :limit, :width => 140, :height => 200,
+      :eager => [{ :crop => :fill, :width => 150, :height => 100 }],
+      :html => { :style => "margin-top: 30px" }
+    ) %>
+
+    <%#= f.cl_image_upload(:photo) %>
+    <%#= f.input :photo_cache, as: :hidden %>
+
+    <%= f.file_field :photo %>
+    <%= f.hidden_field(:photo_cache) %>
+    <%#= hidden_field_tag :direct, params[:direct] %>
+
+
+    <%= f.button :submit, 'Change Cover', class: 'btn btn-bookplated' %>
+  <% end %>
+</div>
