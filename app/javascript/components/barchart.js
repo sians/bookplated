@@ -46,6 +46,7 @@ const barchart = () => {
             .attr("y", function(d,i) { return 45*i;})
             .attr("width", function(d,i) { return 100* d.books.length})
             .attr("height", "40")
+            .attr("fill", "#bcc6d0")
   });
 }
 
