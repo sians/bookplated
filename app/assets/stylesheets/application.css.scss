@@ -14,11 +14,10 @@
 @import "components/index";
 @import "components/buttons";
 @import "components/container";
-
+@import "components/card";
 
 @import "pages/index";
 @import "pages/users_books";
-
 
 @import "books/show";
 
@@ -27,4 +26,6 @@
 @import "forms/login_form";
 @import "forms/novalid_login_form";
 @import "forms/edit_cover_form";
+
+@import "search/search";
 
