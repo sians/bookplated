@@ -8,7 +8,7 @@
         <a class="nav-link active show" id="profile-tab-classic-shadow" data-toggle="tab" href="#profile-classic-shadow"
           role="tab" aria-controls="profile-classic-shadow" aria-selected="true">
           <h4>
-            Books
+            Books (<%= @books.size %>)
           </h4>
         </a>
       </li>
@@ -16,7 +16,7 @@
         <a class="nav-link" id="follow-tab-classic-shadow" data-toggle="tab" href="#classic-authors"
           role="tab" aria-controls="follow-classic-shadow" aria-selected="false">
           <h4>
-            Authors
+            Authors (<%= @authors.size %>)
           </h4>
         </a>
       </li>
@@ -24,7 +24,7 @@
         <a class="nav-link" id="follow-tab-classic-shadow" data-toggle="tab" href="#classic-quotes"
           role="tab" aria-controls="follow-classic-shadow" aria-selected="false">
           <h4>
-            Quotes
+            Quotes (<%= @quotes.size %>)
           </h4>
         </a>
       </li>
@@ -65,7 +65,12 @@
               <div class="author-card">
                 <div class="author-details">
                   <h4><%= author.full_name %></h4>
-                  <p>You have <%= author.authors_books.size %> books</p>
+
+                  <!-- get the number of books by the author that the user has saved in their library -->
+                  <% num_authors_books = 0 %>
+                  <% author.books.each {|book| num_authors_books += 1 if @books_of_authors.include? book} %>
+
+                  <p>You have <%= num_authors_books %> books</p>
                 </div>
                 <div class="author-life">
                   <p>
@@ -81,8 +86,11 @@
                 <div class="author-books">
                   <% unless author.authors_books.empty? %>
                     <% author.authors_books.each do |authors_book| %>
-                      <%= image_tag photo_or_placeholder(authors_book.book), class: 'book-cover-sm' %>
-
+                      <% if current_user.book_ids.include? authors_book.book.id %>
+                        <%= link_to user_book_path(current_user, authors_book.book) do %>
+                          <%= image_tag photo_or_placeholder(authors_book.book), class: 'book-cover-sm' %>
+                        <% end %>
+                      <% end %>
                     <% end %>
                   <% end %>
                 </div>

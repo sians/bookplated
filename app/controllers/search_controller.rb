@@ -3,22 +3,28 @@ class SearchController < ApplicationController
     @books = policy_scope(Book).order(created_at: :desc)
     if params[:query].present?
       results = PgSearch.multisearch(params[:query])
-      @authors = []
-      @books = []
-      @quotes = []
+      @authors = [] #only authors with books in user library
+      @books = [] #only books with query in title
+      @books_of_authors = [] #books of an author, when query is author's name
+      @quotes = [] #quotes with query in quote_text
       results.each do |result|
         if result[:searchable_type] == "Author"
-          @authors << Author.find(result[:searchable_id])
+          author = Author.find(result[:searchable_id])
+          current_user.users_books.each do |users_book|
+            @authors << author if users_book.book.author_ids.include? author.id
+          end
+          @authors.uniq!
         elsif result[:searchable_type] == "Book"
           book = Book.find(result[:searchable_id])
           @books << book if current_user.book_ids.include? book.id
         elsif result[:searchable_type] == "Quote"
-          @quotes << Quote.find(result[:searchable_id])
+          quote = Quote.find(result[:searchable_id])
+          @quotes << quote if quote.users_book.user_id == current_user.id
         end
       end
       unless @authors.empty?
         @authors.each do |author|
-          author.books.each { |book| @books << book if current_user.book_ids.include? book.id }
+          author.books.each { |book| @books_of_authors << book if current_user.book_ids.include? book.id }
         end
       end
     end
