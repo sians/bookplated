@@ -13,7 +13,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="follow-tab-classic-shadow" data-toggle="tab" href="#follow-classic-shadow"
+        <a class="nav-link" id="follow-tab-classic-shadow" data-toggle="tab" href="#classic-authors"
           role="tab" aria-controls="follow-classic-shadow" aria-selected="false">
           <h4>
             Authors
@@ -21,7 +21,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="follow-tab-classic-shadow" data-toggle="tab" href="#follow-classic-shadow"
+        <a class="nav-link" id="follow-tab-classic-shadow" data-toggle="tab" href="#classic-quotes"
           role="tab" aria-controls="follow-classic-shadow" aria-selected="false">
           <h4>
             Quotes
@@ -29,7 +29,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="follow-tab-classic-shadow" data-toggle="tab" href="#follow-classic-shadow"
+        <a class="nav-link" id="follow-tab-classic-shadow" data-toggle="tab" href="#classic-notes"
           role="tab" aria-controls="follow-classic-shadow" aria-selected="false">
           <h4>
             Notes
@@ -55,17 +55,70 @@
           <%= render @partial, locals: {books: @books} %>
 
       </div>
-      <div class="tab-pane fade" id="follow-classic-shadow" role="tabpanel" aria-labelledby="follow-tab-classic-shadow">
+      <div class="tab-pane fade" id="classic-authors" role="tabpanel" aria-labelledby="follow-tab-classic-shadow">
+        <div class="author-results">
+          <% if @authors.empty? %>
+            <p>No author results.</p>
+          <% else %>
+            <p><%= @authors.size %> results</p>
+            <% @authors.each do |author| %>
+              <div class="author-card">
+                <div class="author-details">
+                  <h4><%= author.full_name %></h4>
+                  <p>You have <%= author.authors_books.size %> books</p>
+                </div>
+                <div class="author-life">
+                  <p>
+                    <%= author.birth_year %>
+                    -
+                    <% if author.death_year.nil? %>
+                      present
+                    <% else %>
+                      <%= author.death_year %>
+                    <% end %>
+                  </p>
+                </div>
+                <div class="author-books">
+                  <% unless author.authors_books.empty? %>
+                    <% author.authors_books.each do |authors_book| %>
+                      <%= image_tag photo_or_placeholder(authors_book.book), class: 'book-cover-sm' %>
 
-
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
       </div>
-      <div class="tab-pane fade" id="follow-classic-shadow" role="tabpanel" aria-labelledby="follow-tab-classic-shadow">
-
-
+      <div class="tab-pane fade" id="classic-quotes" role="tabpanel" aria-labelledby="follow-tab-classic-shadow">
+        <div class="quote-results">
+          <% if !@quotes.present? || @quotes.empty? %>
+            <p>No quote results.</p>
+          <% else %>
+            <p><%= @quotes.size %> results</p>
+            <% @quotes.each do |quote| %>
+              <div class="quote-card">
+                <p class="quote-text">"<%= quote.quote_text %>"</p>
+                <p>- <%= quote.users_book.book.authors.first.full_name %></p>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
       </div>
-      <div class="tab-pane fade" id="follow-classic-shadow" role="tabpanel" aria-labelledby="follow-tab-classic-shadow">
+      <div class="tab-pane fade" id="classic-notes" role="tabpanel" aria-labelledby="follow-tab-classic-shadow">
+        <div class="note-results">
+          <% if !@notes.present? || @notes.empty? %>
+            <p>No note results.</p>
+          <% else %>
+            <p><%= @notes.size %> results</p>
+            <% @notes.each do |note| %>
+              <div class="note-card">
 
-
+              </div>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
 
