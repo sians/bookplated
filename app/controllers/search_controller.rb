@@ -5,12 +5,15 @@ class SearchController < ApplicationController
       results = PgSearch.multisearch(params[:query])
       @authors = []
       @books = []
+      @quotes = []
       results.each do |result|
         if result[:searchable_type] == "Author"
           @authors << Author.find(result[:searchable_id])
         elsif result[:searchable_type] == "Book"
           book = Book.find(result[:searchable_id])
           @books << book if current_user.book_ids.include? book.id
+        elsif result[:searchable_type] == "Quote"
+          @quotes << Quote.find(result[:searchable_id])
         end
       end
       unless @authors.empty?

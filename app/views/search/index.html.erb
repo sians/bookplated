@@ -1,14 +1,77 @@
 <div class="container">
-  <div class="filters">
-    <div class="filter-display">
-      <%= link_to search_index_path(current_user, view: 'list', query: @query) do %>
-        <i class="fas fa-list"></i>
-      <% end %>
-      <%= link_to search_index_path(current_user, view: 'grid', query: @query) do %>
-        <i class="fas fa-th-large"></i>
-      <% end %>
+
+  <!-- Classic tabs -->
+  <div class="classic-tabs quotes-and-notes search-results">
+
+    <ul class="nav tabs-cyan" id="myClassicTabShadow" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active show" id="profile-tab-classic-shadow" data-toggle="tab" href="#profile-classic-shadow"
+          role="tab" aria-controls="profile-classic-shadow" aria-selected="true">
+          <h4>
+            Books
+          </h4>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="follow-tab-classic-shadow" data-toggle="tab" href="#follow-classic-shadow"
+          role="tab" aria-controls="follow-classic-shadow" aria-selected="false">
+          <h4>
+            Authors
+          </h4>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="follow-tab-classic-shadow" data-toggle="tab" href="#follow-classic-shadow"
+          role="tab" aria-controls="follow-classic-shadow" aria-selected="false">
+          <h4>
+            Quotes
+          </h4>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="follow-tab-classic-shadow" data-toggle="tab" href="#follow-classic-shadow"
+          role="tab" aria-controls="follow-classic-shadow" aria-selected="false">
+          <h4>
+            Notes
+          </h4>
+        </a>
+      </li>
+    </ul>
+
+    <div class="tab-content card" id="myClassicTabContentShadow">
+      <div class="tab-pane fade active show" id="profile-classic-shadow" role="tabpanel" aria-labelledby="profile-tab-classic-shadow">
+
+          <div class="filters">
+            <div class="filter-display">
+              <%= link_to search_index_path(current_user, view: 'list', query: @query), class: 'list-view' do %>
+                <i class="fas fa-list"></i>
+              <% end %>
+              <%= link_to search_index_path(current_user, view: 'grid', query: @query), class: 'grid-view' do %>
+                <i class="fas fa-th-large"></i>
+              <% end %>
+            </div>
+            <i class="fas fa-filter"></i>
+          </div>
+          <%= render @partial, locals: {books: @books} %>
+
+      </div>
+      <div class="tab-pane fade" id="follow-classic-shadow" role="tabpanel" aria-labelledby="follow-tab-classic-shadow">
+
+
+      </div>
+      <div class="tab-pane fade" id="follow-classic-shadow" role="tabpanel" aria-labelledby="follow-tab-classic-shadow">
+
+
+      </div>
+      <div class="tab-pane fade" id="follow-classic-shadow" role="tabpanel" aria-labelledby="follow-tab-classic-shadow">
+
+
+      </div>
     </div>
-    <i class="fas fa-filter"></i>
+
   </div>
-  <%= render @partial, locals: {books: @books} %>
+  <!-- Classic tabs -->
+
+
+
 </div>
