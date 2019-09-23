@@ -1,8 +1,12 @@
 class AuthorsController < ApplicationController
+  before_action :fetch_author
   def index
   end
 
   def show
+    authorize @author
+    @books = @author.book_ids.map { |book| Book.find(book) if current_user.book_ids.include? book}
+    @books.reject! { |item| item.blank? }
   end
 
   def new

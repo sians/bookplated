@@ -48,16 +48,19 @@ i:hover {
     border-bottom: 1px solid $light-gray;
     li {
       margin-right: 5px;
+
+      a {
+        background-color: $light-gray;
+        border-radius: 5px 5px 0px 0px;
+        h4 {
+          color: white;
+          margin: 0px;
+        }
+      }
+
     }
   }
-  a {
-    background-color: $light-gray;
-    border-radius: 5px 5px 0px 0px;
-    h4 {
-      color: white;
-      margin: 0px;
-    }
-  }
+
   a.active {
     background-color: $bookplated;
   }
