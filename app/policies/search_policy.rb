@@ -1,4 +1,4 @@
-class BookPolicy < ApplicationPolicy
+class SearchPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
