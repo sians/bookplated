@@ -1,5 +1,5 @@
 class AuthorsController < ApplicationController
-  before_action :fetch_author
+  before_action :fetch_author, only: %i[show]
   def index
   end
 
