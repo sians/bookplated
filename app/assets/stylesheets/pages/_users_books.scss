@@ -20,18 +20,22 @@
 // L I S T     P A R T I A L     S T Y L E S
 
 .book-cover-list {
-  height: 180px;
-  width: 120px;
+  height: 120px;
+  width: 80px;
 }
 
 table.list-display {
   width: 900px;
+
   tr.headers {
     font-family: alegreya-sans-sc, sans-serif;
     font-weight: thin;
     text-transform: capitalize;
     .th-cover {
-      width: 150px;
+      width: 120px;
+    }
+    .th-title {
+      width: 220px;
     }
     .th-date-read {
       width: 100px;
@@ -45,5 +49,6 @@ table.list-display {
   }
   td {
     padding: 20px 0px;
+    vertical-align: top;
   }
 }

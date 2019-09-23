@@ -64,7 +64,11 @@
             <% @authors.each do |author| %>
               <div class="author-card">
                 <div class="author-details">
-                  <h4><%= author.full_name %></h4>
+                  <h4>
+                    <%= link_to author, class: 'link' do %>
+                    <%= author.full_name %>
+                    <% end %>
+                  </h4>
 
                   <!-- get the number of books by the author that the user has saved in their library -->
                   <% num_authors_books = 0 %>
@@ -108,7 +112,11 @@
             <% @quotes.each do |quote| %>
               <div class="quote-card">
                 <p class="quote-text">"<%= quote.quote_text %>"</p>
-                <p>- <%= quote.users_book.book.authors.first.full_name %></p>
+                <p>-
+
+                  <%= quote.users_book.book.authors.first.full_name %>
+
+                </p>
               </div>
             <% end %>
           <% end %>

@@ -14,14 +14,31 @@
         <% end %>
       </td>
       <td>
-        <%= link_to user_book_path(current_user, book) do %>
-          <p><%= book.title %></p>
+        <%= link_to user_book_path(current_user, book), class: 'link' do %>
+          <%= book.title %>
         <% end %>
       </td>
       <td>
-
+        <% book.authors.each do |author| %>
+          <%= link_to author_path(author), class: 'link' do %>
+            <%= author.full_name %>
+          <% end %>
+        <% end %>
       </td>
-      <td><%#= book.date_read %></td>
+      <!-- get the UsersBook association for book -->
+      <% book.users_book_ids.each do |users_book_id| %>
+        <% if current_user.users_book_ids.include?  users_book_id %>
+          <% @users_book = UsersBook.find(users_book_id) %>
+        <% end %>
+      <% end %>
+      <!--  -->
+      <td>
+        <% if @users_book.date_read %>
+          <%= Time.at(@users_book.date_read).strftime("%d %B, %Y") %>
+        <% else %>
+          <p>-</p>
+        <% end %>
+      </td>
       <td><%= book.pages %></td>
     </tr>
   <% end %>

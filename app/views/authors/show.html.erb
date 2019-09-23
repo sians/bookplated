@@ -1,2 +1,18 @@
-<h1>Authors#show</h1>
-<p>Find me in app/views/authors/show.html.erb</p>
+<div class="container author-container">
+  <h1><%= @author.full_name %></h1>
+  <h4>
+    <span class="lifespan">
+      <%= @author.birth_year %>
+       -
+      <% if @author.death_year.nil? %>
+        present
+      <% else %>
+        <%= @author.death_year %>
+      <% end %>
+    </span>
+  </h4>
+
+  <div class="author-books">
+    <%= render 'books/list' %>
+  </div>
+</div>
