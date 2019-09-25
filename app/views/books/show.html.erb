@@ -29,7 +29,7 @@
   <!-- Classic tabs -->
   <div class="classic-tabs quotes-and-notes">
 
-    <ul class="nav tabs-cyan" id="myClassicTabShadow" role="tablist">
+    <ul class="nav" id="myClassicTabShadow" role="tablist">
       <li class="nav-item">
         <a class="nav-link active show" id="profile-tab-classic-shadow" data-toggle="tab" href="#profile-classic-shadow"
           role="tab" aria-controls="profile-classic-shadow" aria-selected="true">
@@ -59,7 +59,7 @@
           <% if @users_book.quotes.empty? %>
             <p class="italic">You don't have any quotes yet!</p>
           <% else %>
-            <% @users_book.quotes.each do |quote| %>
+            <% @users_book.quotes.reverse.each do |quote| %>
               <div class="quote-card">
                 <p><span class="quote-text">"<%= quote.quote_text %>"</span> - <span class="page-num">page <%= quote.page_num %></span></p>
               </div>

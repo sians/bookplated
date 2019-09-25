@@ -7,17 +7,18 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-        <%= form_tag search_index_path, method: :get, class: 'search-form' do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Search your library..."
-          %>
-          <button type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-
-        <% end %>
+  <% unless controller.action_name == 'new' %>
+    <%= form_tag search_index_path, method: :get, class: 'search-form' do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Search your library..."
+      %>
+      <button type="submit">
+        <i class="fas fa-search"></i>
+      </button>
+    <% end %>
+  <% end %>
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
