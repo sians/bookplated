@@ -7,20 +7,44 @@
 
     </div>
     <div class="book-info">
-      <h1>
-        <%= @book.title %>
-        <%#= link_to edit_user_book_path(current_user, @book) do %>
-          <!-- <i class="fas fa-pencil-alt"></i> -->
-        <%# end %>
-      </h1>
+      <div class="title-author">
+        <h1><%= @book.title %></h1>
+        <p>by
+          <%= link_to @book.authors.first, class: 'link' do %>
+            <%= @book.authors.first.full_name %>
+          <% end %>
+        </p>
+      </div>
 
-      <p>by
-        <%= link_to @book.authors.first, class: 'link' do %>
-          <%= @book.authors.first.full_name %>
-        <% end %>
-      </p>
-      <p><%= @book.pages %> pages, published in <%= @book.year_published %></p>
-      <p>Finished reading on: </p>
+      <div class="book-stats">
+        <table>
+          <tr>
+            <th>Published</th>
+            <th>Pages</th>
+            <th>Read</th>
+            <th>Own</th>
+          </tr>
+          <tr>
+            <td class="book-info-stat"><%= @book.year_published if @book.year_published %></td>
+            <td class="book-info-stat"><%= @book.pages if @book.pages %></td>
+            <td class="book-info-stat">
+              <% if @users_book.date_read.nil? %>
+                unread
+              <% else %>
+                <%= Time.at(@users_book.date_read).strftime("%d %B, %Y") %>
+              <% end %>
+            </td>
+            <td class="book-info-stat">
+              <% if @users_book.owned.nil? %>
+                don't own
+              <% else %>
+                own
+              <% end %>
+            </td>
+          </tr>
+        </table>
+      </div>
+
 
     </div>
   </div>

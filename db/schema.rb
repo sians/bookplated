@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_20_141117) do
+ActiveRecord::Schema.define(version: 2019_09_25_143500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2019_09_20_141117) do
   end
 
   create_table "quotes", force: :cascade do |t|
-    t.string "quote_text"
+    t.text "quote_text"
     t.integer "page_num"
     t.bigint "users_book_id"
     t.datetime "created_at", null: false
