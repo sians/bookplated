@@ -4,6 +4,7 @@ import 'select2/dist/css/select2.css';
 import { initSelect2 } from '../components/init_select2';
 import { barchart } from '../components/barchart';
 import { coverEdit } from '../components/book_show';
+import { submitQuoteForm } from '../components/form_submit';
 
 initSelect2();
 
@@ -18,4 +19,9 @@ if (stats) {
 const show = document.querySelector(".show-container")
 if (show) {
   coverEdit();
+
+  // adding handler to form in modal for quote submit
+  const quoteSubmitBtn = document.querySelector(".quote-submit")
+  quoteSubmitBtn.addEventListener("click", submitQuoteForm)
 }
+

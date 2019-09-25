@@ -8,6 +8,7 @@ class BooksController < ApplicationController
 
   def show
     authorize @book
+    @quote = Quote.new
     @users_book = @book.users_books.where(:user_id == current_user.id).first
   end
 

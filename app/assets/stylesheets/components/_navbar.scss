@@ -45,4 +45,15 @@ a {
       color: #8b949d;
     }
   }
+
+
+
+}
+
+
+@media screen and (max-width: 600px) {
+  .search-form {
+    display: none;
+    margin-left: -60px;
+  }
 }

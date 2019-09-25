@@ -52,3 +52,11 @@ table.list-display {
     vertical-align: top;
   }
 }
+
+
+@media screen and (max-width: 600px) {
+  table.list-display {
+    width: 450px;
+  }
+
+}
