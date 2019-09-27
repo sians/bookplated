@@ -116,5 +116,11 @@ i:hover {
       background-color: $light-gray;
       border: 2px solid white;
     }
+    td.unowned, td.unread {
+      background-color: #DEACAD;
+    }
+    td.owned, td.read {
+      background-color: #C4DEBD;
+    }
   }
 }

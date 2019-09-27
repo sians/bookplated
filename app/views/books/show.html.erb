@@ -25,22 +25,34 @@
             <th>Own</th>
           </tr>
           <tr>
-            <td class="book-info-stat"><%= @book.year_published if @book.year_published %></td>
-            <td class="book-info-stat"><%= @book.pages if @book.pages %></td>
+            <!-- Y E A R   P U B L I S H E D -->
             <td class="book-info-stat">
+              <%= @book.year_published if @book.year_published %>
+            </td>
+
+            <!-- N U M    P A G E S  -->
+            <td class="book-info-stat">
+              <%= @book.pages if @book.pages %>
+            </td>
+
+            <!-- D A T E    R E A D  -->
+            <td class="book-info-stat <% if @users_book.date_read %>read<% else %>unread<% end %>">
               <% if @users_book.date_read.nil? %>
                 unread
               <% else %>
                 <%= Time.at(@users_book.date_read).strftime("%d %B, %Y") %>
               <% end %>
             </td>
-            <td class="book-info-stat">
+
+            <!-- O W N E D    S T A T U S -->
+            <td class="book-info-stat <% if @users_book.owned %>owned<% else %>unowned<% end %>">
               <% if @users_book.owned.nil? %>
                 don't own
               <% else %>
                 own
               <% end %>
             </td>
+
           </tr>
         </table>
       </div>
@@ -85,7 +97,7 @@
           <% else %>
             <% @users_book.quotes.reverse.each do |quote| %>
               <div class="quote-card">
-                <p><span class="quote-text">"<%= quote.quote_text %>"</span> - <span class="page-num">page <%= quote.page_num %></span></p>
+                <p><span class="quote-text">"<%= quote.quote_text %>"</span> - <span class="page-num"><% if quote.page_num %>page <%= quote.page_num %><% end %></span></p>
               </div>
             <% end %>
           <% end %>
