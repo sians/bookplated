@@ -53,8 +53,6 @@ class BooksController < ApplicationController
       raise "Invalid upload signature" if !preloaded.valid?
       @book.photo = preloaded.identifier
     end
-
-    raise
   end
 
   private
