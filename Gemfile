@@ -7,6 +7,7 @@ gem 'carrierwave', '~> 1.2'
 gem 'select2-rails'
 gem 'pg_search', '~> 2.3.0'
 gem "d3-rails"
+gem 'tinymce-rails'
 
 gem 'bootsnap', require: false
 gem 'devise'

@@ -130,7 +130,7 @@
             <p><%= @notes.size %> results</p>
             <% @notes.each do |note| %>
               <div class="note-card">
-                <p class="note-text"><%= note.note_text %></p>
+                <p class="note-text"><%= raw note.note_text %></p>
                 <p><%= note.page_num if note.page_num %></p>
               </div>
             <% end %>
