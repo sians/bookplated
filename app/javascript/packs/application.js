@@ -5,6 +5,7 @@ import { initSelect2 } from '../components/init_select2';
 import { barchart } from '../components/barchart';
 import { coverEdit } from '../components/book_show';
 import { submitQuoteForm, submitNoteForm } from '../components/form_submit';
+import { initTiny } from '../components/tinymce';
 
 initSelect2();
 
@@ -26,5 +27,9 @@ if (show) {
   // adding handler to form in modal for NOTE submit
   const noteSubmitBtn = document.querySelector(".note-submit")
   noteSubmitBtn.addEventListener("click", submitNoteForm)
+
+  // only initialize TinyMCE on pill click
+  const noteTabBtn = document.querySelector("#notes-tab-plus")
+  noteTabBtn.addEventListener("click", initTiny)
 }
 

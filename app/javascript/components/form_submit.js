@@ -3,6 +3,7 @@ const submitQuoteForm = () => {
 }
 
 const submitNoteForm = () => {
+  tinyMCE.triggerSave();
   document.querySelector(".simple_form.note").submit();
 }
 

@@ -1,6 +1,9 @@
 <%= simple_form_for :note, url: create_note_path, method: :post, id: 'create-note-form', input_html: { class: 'note-form'} do |note_form| %>
   <%= note_form.input :users_book_id, as: :hidden, input_html: { value: users_book.id } %>
-  <%= note_form.input :note_text, as: :text, input_html: { autocomplete: 'off'} %>
+  <%#= note_form.input :note_text, as: :text, rows: 40, cols: 120, input_html: { autocomplete: 'off', class: 'tinymce'} %>
+  <%= note_form.text_area :note_text, :class => "tinymce", :rows => 10, :cols => 45 %>
+  <%= tinymce_assets %>
+  <%= tinymce %>
   <%= note_form.input :page_num %>
   <%= note_form.button :submit, "Add Note", class: "btn btn-bookplated note-submit", data: { disable_with: false } %>
 <% end %>

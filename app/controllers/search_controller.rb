@@ -34,6 +34,7 @@ class SearchController < ApplicationController
     end
     @partial = whitelisted_partial || 'grid'
     @query = params[:query]
+
   end
 
   private
