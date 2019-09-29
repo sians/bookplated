@@ -7,6 +7,7 @@ class SearchController < ApplicationController
       @books = [] #only books with query in title
       @books_of_authors = [] #books of an author, when query is author's name
       @quotes = [] #quotes with query in quote_text
+      @notes = [] #notes with query in note_text
       results.each do |result|
         if result[:searchable_type] == "Author"
           author = Author.find(result[:searchable_id])
@@ -20,6 +21,9 @@ class SearchController < ApplicationController
         elsif result[:searchable_type] == "Quote"
           quote = Quote.find(result[:searchable_id])
           @quotes << quote if quote.users_book.user_id == current_user.id
+        elsif result[:searchable_type] == "Note"
+          note = Note.find(result[:searchable_id])
+          @notes << note if note.users_book.user_id == current_user.id
         end
       end
       unless @authors.empty?

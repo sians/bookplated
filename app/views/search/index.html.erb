@@ -32,7 +32,7 @@
         <a class="nav-link" id="follow-tab-classic-shadow" data-toggle="tab" href="#classic-notes"
           role="tab" aria-controls="follow-classic-shadow" aria-selected="false">
           <h4>
-            Notes
+            Notes (<%= @notes.size %>)
           </h4>
         </a>
       </li>
@@ -130,7 +130,8 @@
             <p><%= @notes.size %> results</p>
             <% @notes.each do |note| %>
               <div class="note-card">
-
+                <p class="note-text"><%= note.note_text %></p>
+                <p><%= note.page_num if note.page_num %></p>
               </div>
             <% end %>
           <% end %>

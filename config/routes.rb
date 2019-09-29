@@ -15,8 +15,15 @@ Rails.application.routes.draw do
   post 'authors/create', to: 'authors#create', as: 'authors_create'
   get 'authors/show/:id', to: 'authors#show', as: 'author'
 
+  # Q U O T E    R O U T E S
   get 'quotes/new', to: 'quotes#new', as: 'new_quote'
   post 'quotes/create', to: 'quotes#create', as: 'create_quote'
 
+  # N O T E   R O U T E S
+  get 'notes/new', to: 'notes#new', as: 'new_note'
+  post 'notes/new', to: 'notes#create', as: 'create_note'
+
+  # S T A T S     R O U T E S
+  # has a json at the endpoint
   get 'stats/barchart', to: 'stats#barchart', as: 'barchart'
 end

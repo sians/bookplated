@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_25_143500) do
+ActiveRecord::Schema.define(version: 2019_09_29_111246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(version: 2019_09_25_143500) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.text "note_text"
+    t.integer "page_num"
+    t.bigint "users_book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["users_book_id"], name: "index_notes_on_users_book_id"
   end
 
   create_table "pg_search_documents", force: :cascade do |t|
@@ -92,6 +101,7 @@ ActiveRecord::Schema.define(version: 2019_09_25_143500) do
 
   add_foreign_key "authors_books", "authors"
   add_foreign_key "authors_books", "books"
+  add_foreign_key "notes", "users_books"
   add_foreign_key "quotes", "users_books"
   add_foreign_key "users_books", "books"
   add_foreign_key "users_books", "users"
