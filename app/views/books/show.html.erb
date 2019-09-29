@@ -77,11 +77,12 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id="follow-tab-classic-shadow" data-toggle="tab" href="#follow-classic-shadow"
-          role="tab" aria-controls="follow-classic-shadow" aria-selected="false">
+        <a class="nav-link" id="follow-tab-classic-shadow" data-toggle="tab" href="#notes-classic-shadow"
+          role="tab" aria-controls="notes-classic-shadow" aria-selected="false">
           <h4>
             Notes
-            <i class="fas fa-plus"></i>
+            <i class="fas fa-plus" data-toggle="modal" data-target="#new-note-modal"></i>
+            <%= render 'notes/notes_modal', users_book: @users_book %>
           </h4>
         </a>
       </li>
@@ -104,10 +105,18 @@
         </div>
 
       </div>
-      <div class="tab-pane fade" id="follow-classic-shadow" role="tabpanel" aria-labelledby="follow-tab-classic-shadow">
+      <div class="tab-pane fade" id="notes-classic-shadow" role="tabpanel" aria-labelledby="notes-tab-classic-shadow">
 
         <div class="quotes-or-notes">
-          <p class="italic">You don't have any notes yet!</p>
+
+          <% if @users_book.notes.empty? %>
+            <p class="italic">You don't have any notes yet!</p>
+          <% else %>
+            <% @users_book.notes.reverse.each do |note| %>
+              <p><span class="quote-text"><%= note.note_text %></span></p>
+            <% end %>
+          <% end %>
+
         </div>
 
       </div>
