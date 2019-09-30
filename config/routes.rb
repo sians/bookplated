@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   get 'notes/new', to: 'notes#new', as: 'new_note'
   post 'notes/new', to: 'notes#create', as: 'create_note'
 
+  # B O O K   S E A R C H   R O U T E
+  post 'search/fetch_books', to: 'search#fetch_books', as: 'fetch'
+
   # S T A T S     R O U T E S
   # has a json at the endpoint
   get 'stats/barchart', to: 'stats#barchart', as: 'barchart'
