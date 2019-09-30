@@ -1,0 +1,7 @@
+<div class="modal-ajax-content">
+  <% @top_three.each do |book| %>
+    <%= book[:title] %>
+    <%= book[:author] %>
+    <%= book[:book_url] %>
+  <% end %>
+</div>
