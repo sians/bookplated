@@ -8,4 +8,8 @@ class SearchPolicy < ApplicationPolicy
   def index?
     true
   end
+
+  def fetch_books?
+    true
+  end
 end

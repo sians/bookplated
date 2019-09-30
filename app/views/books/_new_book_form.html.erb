@@ -1,5 +1,9 @@
 
 <%= simple_form_for @book, url: user_books_path, method: :post do |f| %>
+  <%= f.association :authors, label_method: :full_name, input_html: { class: 'select2' } %>
+
+  <p class="btn btn-bookplated" data-toggle="modal" data-target="#new-author-modal">New Author</p>
+
   <%= f.input :title %>
   <%= f.input :year_published %>
   <%= f.input :pages %>
@@ -14,9 +18,7 @@
                 { class: 'upload-photo'},
               label: 'Upload a photo' %>
 
-  <%= f.association :authors, label_method: :full_name, input_html: { class: 'select2' } %>
 
-  <p class="btn btn-bookplated" data-toggle="modal" data-target="#new-author-modal">New Author</p>
 
 
   <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>

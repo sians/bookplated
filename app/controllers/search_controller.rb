@@ -34,7 +34,12 @@ class SearchController < ApplicationController
     end
     @partial = whitelisted_partial || 'grid'
     @query = params[:query]
+  end
 
+  def fetch_books
+    skip_authorization
+    scrape_results = GoodreadsScrapeService.new(params[:title])
+    @top_three = scrape_results.fetchSearchResults
   end
 
   private
