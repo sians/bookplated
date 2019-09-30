@@ -26,6 +26,7 @@ class GoodreadsScrapeService
       {
         title: result.search("a.bookTitle").text.gsub("\n","").strip,
         author: result.search("a.authorName").text,
+        cover_url: result.search("img.bookCover").first.attributes["src"].value,
         book_url: "https://www.goodreads.com#{result.search("a.bookTitle").first.attributes["href"].value}"
       }
     end

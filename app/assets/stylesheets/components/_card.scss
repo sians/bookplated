@@ -23,3 +23,15 @@
     font-style: italic;
   }
 }
+
+
+// F E T C H E D    B O O K    C A R D S
+.scrape-result-card {
+  display: flex;
+  .scrape-cover {
+    margin-right: 20px;
+  }
+  .scrape-details {
+    text-align: left;
+  }
+}

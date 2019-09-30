@@ -1,7 +1,17 @@
 <div class="modal-ajax-content">
   <% @top_three.each do |book| %>
-    <%= book[:title] %>
-    <%= book[:author] %>
-    <%= book[:book_url] %>
+    <div class="scrape-result-card">
+      <div class="scrape-cover">
+        <% if book[:cover_url] == "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/nophoto/book/111x148._SX50_.png" %>
+          <%= image_tag 'http://via.placeholder.com/45x75' %>
+        <% else %>
+          <%= image_tag book[:cover_url] %>
+        <% end %>
+      </div>
+      <div class="scrape-details">
+        <h3><%= book[:title] %></h3>
+        <p>by <%= book[:author] %></p>
+      </div>
+    </div>
   <% end %>
 </div>

@@ -38,8 +38,8 @@ class SearchController < ApplicationController
 
   def fetch_books
     skip_authorization
-    x = GoodreadsScrapeService.new(params[:title])
-    @top_three = x.fetchSearchResults
+    scrape_results = GoodreadsScrapeService.new(params[:title])
+    @top_three = scrape_results.fetchSearchResults
   end
 
   private

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container new-book-container">
   <h3>Add a Book:</h3>
 
   <%= form_tag fetch_path, method: :post, remote: :true do %>
@@ -12,5 +12,6 @@
   <% end %>
   <%= render 'search/fetched_books_modal' %>
 
+  <%= link_to 'Add a book manually?', class: 'link' %>
   <%#= render 'new_book_form' %>
 </div>
