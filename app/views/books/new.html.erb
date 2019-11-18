@@ -1,17 +1,17 @@
 <div class="container new-book-container">
-  <h3>Add a Book:</h3>
-
-  <%= form_tag fetch_path, method: :post, remote: :true do %>
-    <div class="form-inputs">
-      <%= text_field_tag :title, nil, placeholder: 'Search for a title' %>
-    </div>
-    <div id="fetch-books" class="form-action">
-      <%#= submit_tag "Search", class: 'btn btn-bookplated'%>
-      <%= submit_tag "Search", class: "btn btn-bookplated", data: { toggle: 'modal', target: "#fetched-books"} %>
-    </div>
-  <% end %>
-  <%= render 'search/fetched_books_modal' %>
-
-  <%= link_to 'Add a book manually?', class: 'link' %>
+  <div class="new-book-scraper">
+    <h3>Add a Book:</h3>
+    <%= form_tag fetch_path, method: :post, remote: :true do %>
+      <div class="form-inputs">
+        <%= text_field_tag :title, nil, placeholder: 'Search for a title' %>
+      </div>
+      <div id="fetch-books" class="form-action">
+        <%#= submit_tag "Search", class: 'btn btn-bookplated'%>
+        <%= submit_tag "Search", class: "btn btn-bookplated", data: { toggle: 'modal', target: "#fetched-books"} %>
+      </div>
+    <% end %>
+    <%= render 'search/fetched_books_modal' %>
+    <%= link_to 'Add a book manually?', class: 'link' %>
+  </div>
   <%#= render 'new_book_form' %>
 </div>

@@ -1,7 +1,11 @@
 <div class="container show-container">
   <div class="book-details">
     <div class="book-cover-container">
-      <%= image_tag photo_or_placeholder(@book), class: 'book-cover' %>
+      <% if @book.cover.nil? %>
+        <%= image_tag photo_or_placeholder(@book), class: 'book-cover' %>
+      <% else %>
+        <%= image_tag(@book.cover, class: 'book_cover', height: "200px")  %>
+      <% end %>
       <span class="edit-cover" data-toggle="modal" data-target="#edit-cover-modal">edit</span>
       <%= render 'books/edit_cover_modal', book: @book %>
 

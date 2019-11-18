@@ -42,6 +42,32 @@ class SearchController < ApplicationController
     @top_three = scrape_results.fetchSearchResults
   end
 
+  def fetch_book
+    skip_authorization
+    scrape_results = GoodreadsScrapeService.new(params[:title])
+
+    # Only scrape if book doesn't exist in db!
+
+    @details = scrape_results.fetchBookDetails(params["book"])
+    book_exists = Book.find_by(title: params[:title])
+    if book_exists && (book_exists.authors.first.full_name == @details.last[:full_name])
+      @book = Book.find_by(title: @details.first[:title])
+      @author = @book.authors.first
+    else
+      @book = Book.new(@details.first)
+      author = Author.create(@details.last)
+      @book.authors << author
+      @book.save
+    end
+    users_book = UsersBook.new
+    users_book.user = current_user
+    users_book.book = @book
+    if users_book.save
+      redirect_to root_path
+    end
+    # binding.pry
+  end
+
   private
 
   def whitelisted_partial

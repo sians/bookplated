@@ -13,6 +13,12 @@ class GoodreadsScrapeService
     cleanSearchResults(document) # array of TOP 3 book hashes
   end
 
+  def fetchBookDetails(book)
+    raw_html = open(book["book_url"]).read
+    document = Nokogiri::HTML(raw_html)
+    extractBookDetails(document, book)
+  end
+
   private
 
   def cleanURL
@@ -30,6 +36,25 @@ class GoodreadsScrapeService
         book_url: "https://www.goodreads.com#{result.search("a.bookTitle").first.attributes["href"].value}"
       }
     end
+  end
+
+  def extractBookDetails(document, book)
+    year = document.search("nobr.greyText").text.strip.split(" ")
+    year = year.last.remove(")", "").to_i unless year.empty?
+    cover = book[:cover_url].gsub("i/", "l/").gsub("_SY75", "_SY475")
+    book_details = {
+      pages: document.search("span[itemprop='numberOfPages']").text.remove(" pages",""),
+      year_published: year,
+      cover: cover,
+      isbn: document.search("span[itemprop='isbn']").text.to_i,
+      title: book[:title]
+    }
+    author_details = {
+      first_name: book[:author].split(' ', 2).first,
+      last_name: book[:author].split(' ', 2).last,
+      full_name: book[:author]
+    }
+    [book_details, author_details]
   end
 
 end

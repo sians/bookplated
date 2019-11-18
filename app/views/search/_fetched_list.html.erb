@@ -9,7 +9,9 @@
         <% end %>
       </div>
       <div class="scrape-details">
-        <h3><%= book[:title] %></h3>
+        <%= link_to fetch_book_path(book: book), method: :post do %>
+          <h3><%= book[:title] %></h3>
+        <% end %>
         <p>by <%= book[:author] %></p>
       </div>
     </div>

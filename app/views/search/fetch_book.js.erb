@@ -1,0 +1,8 @@
+function populateModal() {
+  const modalBody = document.getElementById('fetched-books-modal-body');
+  modalBody.innerHTML = '<%= j render "search/fetched_list", top_three: @top_three %>';
+}
+
+populateModal();
+
+
