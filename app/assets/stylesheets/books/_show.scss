@@ -10,11 +10,18 @@ i:hover {
   font-style: italic;
 }
 
+img.book-cover {
+  height: 200px;
+}
+
 .book-details {
   display: flex;
   font-family: "questa-grande", serif;
   .book-cover-container {
     position: relative;
+    img.book-cover {
+      height: 200px;
+    }
   }
   .edit-cover {
     display: none;

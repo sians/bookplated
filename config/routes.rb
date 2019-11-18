@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   # B O O K   S E A R C H   R O U T E
   post 'search/fetch_books', to: 'search#fetch_books', as: 'fetch'
+  post 'search/fetch_book', to: 'search#fetch_book', as: 'fetch_book'
 
   # S T A T S     R O U T E S
   # has a json at the endpoint

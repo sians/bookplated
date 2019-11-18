@@ -10,7 +10,12 @@
     <tr>
       <td>
         <%= link_to user_book_path(current_user, book) do %>
-          <%= image_tag photo_or_placeholder(book), class: 'book-cover-list' %>
+        <%# raise %>
+          <% if book.cover.nil? %>
+            <%= image_tag photo_or_placeholder(book), class: 'book-cover-list' %>
+          <% else %>
+            <%= image_tag(book.cover, height: "200px") %>
+          <% end %>
         <% end %>
       </td>
       <td>
